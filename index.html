@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Doubling Window</title>
-<script>
-function openSmallestWindow() {
-    var win = window.open("", "myWindow", "width=100,height=100");
-    win.moveTo(0, 0);
+<title>Rainbow Flash</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
-function preventClose(event) {
-    if (event.target.tagName === "WINDOW") {
-        event.preventDefault();
-        event.target.resizeBy(100, 100);
+.rainbow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    animation: rainbow 1s infinite linear;
+}
+
+@keyframes rainbow {
+    0% {
+        background-color: red;
+    }
+    10% {
+        background-color: orange;
+    }
+    20% {
+        background-color: yellow;
+    }
+    30% {
+        background-color: green;
+    }
+    40% {
+        background-color: blue;
+    }
+    50% {
+        background-color: indigo;
+    }
+    60% {
+        background-color: violet;
+    }
+    70% {
+        background-color: indigo;
+    }
+    80% {
+        background-color: blue;
+    }
+    90% {
+        background-color: green;
+    }
+    100% {
+        background-color: red;
     }
 }
-
-window.addEventListener("beforeunload", preventClose);
-
-document.getElementById("openWindow").addEventListener("click", openSmallestWindow);
-</script>
+</style>
 </head>
 <body>
-<button id="openWindow">Open Smallest Window</button>
+<div class="rainbow"></div>
 </body>
 </html>
