@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Congratulations, Tristan!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Run Python Script</title>
 </head>
 <body>
-    <h1 id="title">Congratulations, Tristan!</h1>
-    <p>You're skipping half of 8th grade and heading to high school! That's amazing!</p>
-    <div id="confetti"></div>
-    <script src="script.js"></script>
+    <button onclick="runPythonScript()">Click here</button>
+
+    <script>
+        function runPythonScript() {
+            // Replace 'path/to/your/script.py' with the actual path to your Python script
+            var scriptPath = 'YOUAREANIDIOT';
+
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Set the request method and URL
+            xhr.open('GET', scriptPath, true);
+
+            // Set the onload event handler
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // The script has been executed successfully
+                    console.log(xhr.responseText);
+                } else {
+                    // An error occurred
+                    console.error('Error running Python script: ' + xhr.statusText);
+                }
+            };
+
+            // Send the request
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
